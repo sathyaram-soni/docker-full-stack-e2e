@@ -12,7 +12,7 @@ Tech stack used
 ## How to run the application locally?
 
 * Install docker. Follow this link for installation [Link](https://docs.docker.com/engine/install/)
-* Run command ```docker-compose build```
+* Run command ```docker-compose build``` in the root folder containing docker-compose.yml
 * This will create following images
 <img src="./screenshots/docker_images.png">
 * Run ```docker-compose up```
