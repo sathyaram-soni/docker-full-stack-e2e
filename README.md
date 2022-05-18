@@ -15,6 +15,7 @@ Tech stack used
 * Run command ```docker-compose build``` in the root folder containing docker-compose.yml
 * This will create following images (you can check the images by running docker commands in cli or open docker dashboard)
 <img src="./screenshots/docker_images.png">
+
 * Run command ```docker-compose up```
 
 * This will startup the container
