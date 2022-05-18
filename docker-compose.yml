@@ -1,0 +1,72 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: crud-db
+    restart: always
+    ports:
+      - "3307:3306"
+    expose:
+      - "3307"
+    environment:
+      MYSQL_DATABASE: testdb
+      #MYSQL_USER: root
+      #MYSQL_PASSWORD: 12345678
+      MYSQL_ROOT_PASSWORD: 12345678
+    volumes:
+      - crud-db-data:/var/lib/mysql
+    networks:
+      - shared-networks
+
+  api:
+    container_name: crud-api
+    restart: unless-stopped
+    image: crud-api:1.0.0
+    build:
+      context: api
+      #target: production
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    networks:
+      - shared-networks
+    depends_on:
+      - db
+
+  ui:
+    container_name: crud-ui
+    restart: unless-stopped
+    image: crud-ui:1.0.0
+    build:
+      context: ui
+      #target: production
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8081
+    networks:
+      - shared-networks
+    depends_on:
+      - api
+
+  e2e:
+    container_name: crud-e2e
+    image: crud-e2e:1.0.0
+    build:
+      context: e2e
+      #target: production
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - shared-networks
+    volumes:
+      - .:/tests
+    depends_on:
+      - ui
+
+volumes:
+  crud-db-data:
+
+networks:
+  shared-networks:
