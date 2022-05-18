@@ -13,7 +13,7 @@ Tech stack used
 
 * Install docker. Follow this link for installation [Link](https://docs.docker.com/engine/install/)
 * Run command ```docker-compose build``` in the root folder containing docker-compose.yml
-* This will create following images
+* This will create following images (you can check the images by running docker commands in cli or open docker dashboard)
 <img src="./screenshots/docker_images.png">
 * Run ```docker-compose up```
 * This will startuo the container
