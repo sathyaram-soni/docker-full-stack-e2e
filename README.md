@@ -16,14 +16,20 @@ Tech stack used
 * This will create following images (you can check the images by running docker commands in cli or open docker dashboard)
 <img src="./screenshots/docker_images.png">
 * Run command ```docker-compose up``` 
+
 * This will startup the container
 <img src="./screenshots/docker_container.png">
+
 * The app will startup. But, there migh be a problem with the API.
+
 * The API startsup before the MySQL database which results in connection exception
+
 * To fix that stop the API instance in docker dashboard and start it again (Make sure DB is up and running)
 <img src="./screenshots/docker_api_stop.png">
+
 * Open http://localhost:8081/ and perform some crud operations (Like create tutorial, delete turorial)
 <img src="./screenshots/docker_ui.png">
+
 * You can also check the e2e test report by launching the url http://localhost:3000/
 <img src="./screenshots/docker-e2e-report.png">
 
